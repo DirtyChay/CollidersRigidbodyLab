@@ -9,17 +9,17 @@ public class FeetColliderScript : MonoBehaviour {
 		return obj.layer == LayerMask.NameToLayer ("Floor");
 	}
 
-    // use coll.gameObject if you need a reference coll's GameObject
-    void OnCollisionEnter2D(Collision2D coll) {
-	    //TASK 2
-	    this.transform.parent.GetComponent<PlayerControllerTask2>().feetContact = isFloor(coll.gameObject);
-    }
+	// use coll.gameObject if you need a reference coll's GameObject
+	void OnCollisionEnter2D(Collision2D coll) {
+		//TASK 2
+		GetComponentInParent<PlayerControllerTask2>().feetContact = isFloor(coll.gameObject);
+	}
 
-    void OnCollisionExit2D(Collision2D coll) {
-	    if (isFloor(coll.gameObject)) {
-		    this.transform.parent.GetComponent<PlayerControllerTask2>().feetContact = false;
-	    }
-    }
+	void OnCollisionExit2D(Collision2D coll) {
+		if (isFloor(coll.gameObject)) {
+			GetComponentInParent<PlayerControllerTask2>().feetContact = false;
+		}
+	}
 
 	//IF YOU NEED TO SET A PUBLIC VARIABLE IN A PARENT (hint hint)
 	//GetComponentInParent<PlayerControllerTask2>().variable_name
