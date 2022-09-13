@@ -39,7 +39,6 @@ public class PlayerControllerTask2 : MonoBehaviour {
 	}
 
 	bool canJump() {
-        return false;
-		//TASK 2
+		return feetContact;
 	}
 }

@@ -10,12 +10,15 @@ public class FeetColliderScript : MonoBehaviour {
 	}
 
     // use coll.gameObject if you need a reference coll's GameObject
-	void OnCollisionEnter2D(Collision2D coll) {
-        //TASK 2
-	}
+    void OnCollisionEnter2D(Collision2D coll) {
+	    //TASK 2
+	    this.transform.parent.GetComponent<PlayerControllerTask2>().feetContact = isFloor(coll.gameObject);
+    }
 
-	void OnCollisionExit2D(Collision2D coll) {
-        //TASK 2
+    void OnCollisionExit2D(Collision2D coll) {
+	    if (isFloor(coll.gameObject)) {
+		    this.transform.parent.GetComponent<PlayerControllerTask2>().feetContact = false;
+	    }
     }
 
 	//IF YOU NEED TO SET A PUBLIC VARIABLE IN A PARENT (hint hint)
