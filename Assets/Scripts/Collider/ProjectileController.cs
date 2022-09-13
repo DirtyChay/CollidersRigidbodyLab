@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProjectileController : MonoBehaviour {
     /*
-     * Rigid body mass is higher than player, so will automatically move player
+     * Rigid body mass is higher than player (1 vs 100), so will automatically move player
      * on impact. All that's left is to delete this.
      */
     void OnCollisionEnter2D(Collision2D coll) {
